@@ -1,0 +1,38 @@
+iSearch allows you to search for Photo’s using Google Api custom search. 
+
+The basic architecture is as following:
+
+AppDelegate -> NavigationController -> ViewController (As RootViewController) -> When search button Pressed pushes to (ListPhotoViewController)
+
+I have used a mix match of StoryBoard and Code for various reasons.
+
+StoryBoard for:
+1) Easier to align View Components
+2) Gives a over all view as how the project ViewControllers are being aligned (This can be a tough choice when coding 100%)
+3) Easier to use Auto-Layout (I haven’t use this option for this project since the entire project lays out only in Portrait format)
+4) Allows developers to quickly build View components and rather concentrate on the complexity of the functionality.
+
+Most Code stands for:
+1) Model Initialization
+2) Create Network Instance and calls
+3) Populate the models from Success network events
+4) Update UI once Models have being populated
+5) Few hacks here and there for better resolution
+
+Improvement for v1.1
+1) Use SDWebImage plugin for caching images (SDWebImage is a great framework for caching images and keeping the image size low, which allows the memory to be lower as well).
+
+2) User AFNetworking plugin for enhancing network operations. (Currently I use sendAsync calls, and it has lot of limitation. I thought of wrapping NSURLRequest with NSOperations, but apparently I have done that in past with other projects, and its a very huge overhead which keeps the developer busy in restricting in developing better application than doing mostly tweaks to optimize network connectivity, plus why reinvent the wheel anyways?)
+
+Bugs
+1) I have encountered that scrolling of the scrollView for TextField search doesn’t properly scroll up or down, its neither slick or bounces off instantly. Although this code is being driven originally from apple’s documentation, I was not pleased with the solution. Source: https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+
+Enhancement
+1) Add more content’s when the cell reaches the end of the index.
+2) Use better placeholder (It’s wacky but not a true placeholder)
+3) Make the UI more enrich by “Photoshoping”. I tried making a “Placeholder button for search, but photoshop requires quite some time input to get a really remarkable UI, hence due to time constraint I have kept it to minimal.
+
+Concern
+I hope in true event this project will be fairly judged from the usage of the ingredients and how the project is being architected and laid out, rather than the upper level output.
+
+Cheers to all, and enjoy coding!
